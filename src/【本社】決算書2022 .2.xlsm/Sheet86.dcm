@@ -1,0 +1,95 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Sheet86"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Dim i, k, c1, c2 As Integer
+Dim syo As Integer
+Dim cnt1, sum As Long
+Dim t, a As String
+Dim myRange As Range
+
+Private Sub CommandButton1_Click()
+    
+    c1 = 0
+    c2 = 0
+    k = 0
+    syo = 0
+    sum = 0
+    sum2 = 0
+    sum3 = 0
+    t = ""
+    a = ""
+    
+    Application.DisplayAlerts = False
+    
+    Set myRange = Range("I5:H300")
+
+    cnt1 = WorksheetFunction.Count(myRange)
+    
+    syo = Application.RoundUp(cnt1 / 30, 0)
+      
+    k = 0
+    
+    'あらかじめ現在のシートを削除
+    For i = 1 To 10
+    
+        If SheetDetect("電話加入" & "(" & i & ")") Then
+                
+            Worksheets("電話加入" & "(" & i & ")").Delete
+
+        End If
+    
+    Next
+               
+    For i = 1 To syo
+    
+    If k = 0 Then
+            
+        Worksheets("電話加入").Copy After:=Worksheets("電話加入データ")
+        ActiveSheet.Name = "電話加入" & "(" & i & ")"
+        k = 1
+        
+    Else
+        
+        Worksheets("電話加入").Copy After:=Worksheets("電話加入" & "(" & i - 1 & ")")
+        ActiveSheet.Name = "電話加入" & "(" & i & ")"
+    
+    End If
+        
+    c1 = (i - 1) * 30 + 5
+    c2 = i * 30 + 4
+        
+        Worksheets("電話加入データ").Range(Cells(c1, 1), Cells(c2, 8)).Copy
+'        Worksheets("電話加入" & "(" & i & ")").Range("A5").PasteSpecial Paste:=xlValues
+        Worksheets("電話加入" & "(" & i & ")").Range("A5").PasteSpecial
+        
+        sum = sum + Worksheets("電話加入" & "(" & i & ")").Range("H35").Value
+        
+        'タイトル№変換
+        a = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(i, "1", "Ⅰ"), "2", "Ⅱ"), "3", "Ⅲ"), "4", "Ⅳ"), "5", "Ⅴ"), "6", "Ⅵ"), "7", "Ⅶ"), "8", "Ⅷ"), "9", "Ⅸ"), "10", "Ⅹ")
+        t = Worksheets("電話加入").Range("A1").Value & a
+        
+        Worksheets("電話加入" & "(" & i & ")").Range("A1").Value = t
+        
+        If i = syo And i <> 1 Then
+        
+        Worksheets("電話加入" & "(" & i & ")").Range("H36").Value = sum
+        
+        Else
+        
+        '総合計セルのクリア
+        Worksheets("電話加入" & "(" & i & ")").Range("A36:H36").ClearFormats
+        Worksheets("電話加入" & "(" & i & ")").Range("A36:H36").Clear
+        Worksheets("電話加入" & "(" & i & ")").Range("A36:H36").Borders(xlEdgeTop).LineStyle = xlContinuous
+
+        End If
+        
+    Next
+
+End Sub
+

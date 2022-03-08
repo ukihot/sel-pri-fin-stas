@@ -1,0 +1,97 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Sheet124"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Dim i, k, c1, c2 As Integer
+Dim syo As Integer
+Dim cnt1, sum As Long
+Dim t, a As String
+Dim myRange As Range
+
+Private Sub CommandButton1_Click()
+    
+    c1 = 0
+    c2 = 0
+    k = 0
+    syo = 0
+    sum = 0
+    sum2 = 0
+    sum3 = 0
+    t = ""
+    a = ""
+    
+    Application.DisplayAlerts = False
+    
+    Set myRange = Range("I5:H300")
+
+    cnt1 = WorksheetFunction.Count(myRange)
+
+    syo = Application.RoundUp(cnt1 / 30, 0)
+
+    k = 0
+    
+    '‚ ‚ç‚©‚¶‚ßŒ»İ‚ÌƒV[ƒg‚ğíœ
+    For i = 1 To 10
+    
+        If SheetDetect("–@lÅ“™[“–Šz" & "(" & i & ")") Then
+                
+            Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Delete
+
+        End If
+    
+    Next
+               
+    For i = 1 To syo
+    
+    If k = 0 Then
+            
+        Worksheets("–@lÅ“™[“–Šz").Copy After:=Worksheets("–@lÅ“™[“–Šzƒf[ƒ^")
+        ActiveSheet.Name = "–@lÅ“™[“–Šz" & "(" & i & ")"
+        k = 1
+        
+    Else
+        
+        Worksheets("–@lÅ“™[“–Šz").Copy After:=Worksheets("–@lÅ“™[“–Šz" & "(" & i - 1 & ")")
+        ActiveSheet.Name = "–@lÅ“™[“–Šz" & "(" & i & ")"
+    
+    End If
+        
+    c1 = (i - 1) * 30 + 5
+    c2 = i * 30 + 4
+        
+        Worksheets("–@lÅ“™[“–Šzƒf[ƒ^").Range(Cells(c1, 1), Cells(c2, 8)).Copy
+'        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A5").PasteSpecial Paste:=xlValues
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A5").PasteSpecial
+        
+        sum = sum + Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("H35").Value
+        
+        'ƒ^ƒCƒgƒ‹‡‚•ÏŠ·
+'        a = Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(i, "1", "‡T"), "2", "‡U"), "3", "‡V"), "4", "‡W"), "5", "‡X"), "6", "‡Y"), "7", "‡Z"), "8", "‡["), "9", "‡\"), "10", "‡]")
+        t = Worksheets("–@lÅ“™[“–Šz").Range("A1").Value & i
+        
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A1").Value = t
+        
+        If i = syo And i <> 1 Then
+        
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("H36").Value = sum
+        
+        Else
+        
+        '‘‡ŒvƒZƒ‹‚ÌƒNƒŠƒA
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A36:H36").ClearFormats
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A36:H36").Clear
+        Worksheets("–@lÅ“™[“–Šz" & "(" & i & ")").Range("A36:H36").Borders(xlEdgeTop).LineStyle = xlContinuous
+
+        End If
+        
+    Next
+
+End Sub
+
+
+

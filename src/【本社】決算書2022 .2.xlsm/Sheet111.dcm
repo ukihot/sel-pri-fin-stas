@@ -1,0 +1,868 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Sheet111"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+Dim i, c As Integer
+
+
+Private Sub CheckBox1_Click()
+
+CheckBox1.Value = True
+
+End Sub
+
+
+Private Sub CommandButton1_Click()
+
+i = 0
+c = 0
+
+'Sheets("印刷選択").Visible = False
+'ActiveSheet.Next.Activate
+
+If CheckBox1.Value = True Then
+
+    Sheets("預金").Select
+
+End If
+
+If CheckBox2.Value = True Then
+
+        For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("受手" & "(" & i & ")") Then
+                
+            Worksheets("受手" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("受手").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox3.Value = True Then
+
+            For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("売掛" & "(" & i & ")") Then
+                
+            Worksheets("売掛" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("売掛").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox4.Value = True Then
+
+    Sheets("電子記録").Select Replace:=False
+
+End If
+
+
+
+If CheckBox5.Value = True Then
+
+    Sheets("有価証券").Select Replace:=False
+
+End If
+
+If CheckBox6.Value = True Then
+
+    For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("商品" & "(" & i & ")") Then
+                
+            Worksheets("商品" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("商品").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox7.Value = True Then
+
+    For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("製品" & "(" & i & ")") Then
+                
+            Worksheets("製品" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("製品").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+
+End If
+
+If CheckBox8.Value = True Then
+
+     For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("原材料" & "(" & i & ")") Then
+                
+            Worksheets("原材料" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("原材料").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox9.Value = True Then
+
+    Sheets("仕掛品").Select Replace:=False
+
+End If
+
+If CheckBox10.Value = True Then
+
+    Sheets("貯蔵品").Select Replace:=False
+
+End If
+
+If CheckBox11.Value = True Then
+
+    Sheets("積送品").Select Replace:=False
+
+End If
+
+If CheckBox12.Value = True Then
+
+    Sheets("前渡金").Select Replace:=False
+
+End If
+
+If CheckBox13.Value = True Then
+
+    Sheets("前払費用").Select Replace:=False
+
+End If
+
+If CheckBox14.Value = True Then
+
+    Sheets("預け金").Select Replace:=False
+
+End If
+
+If CheckBox15.Value = True Then
+
+    Sheets("短期貸付金").Select Replace:=False
+
+End If
+
+If CheckBox16.Value = True Then
+
+    Sheets("立替金").Select Replace:=False
+
+End If
+
+If CheckBox17.Value = True Then
+
+    Sheets("仮払金").Select Replace:=False
+
+End If
+
+If CheckBox18.Value = True Then
+
+    Sheets("不渡").Select Replace:=False
+
+End If
+
+If CheckBox19.Value = True Then
+
+    Sheets("未収入金").Select Replace:=False
+
+End If
+
+If CheckBox20.Value = True Then
+
+    Sheets("未成").Select Replace:=False
+
+End If
+
+If CheckBox21.Value = True Then
+
+    Sheets("償却資産").Select Replace:=False
+
+End If
+
+If CheckBox22.Value = True Then
+
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("土地" & "(" & i & ")") Then
+                
+            Worksheets("土地" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("土地").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox23.Value = True Then
+
+    Sheets("建設仮勘定").Select Replace:=False
+
+End If
+
+If CheckBox24.Value = True Then
+
+    Sheets("借地").Select Replace:=False
+
+End If
+
+If CheckBox25.Value = True Then
+
+         For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("電話加入" & "(" & i & ")") Then
+                
+            Worksheets("電話加入" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("電話加入").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox26.Value = True Then
+
+    Sheets("投資有価").Select Replace:=False
+
+End If
+
+If CheckBox27.Value = True Then
+
+    Sheets("出資").Select Replace:=False
+
+End If
+
+If CheckBox28.Value = True Then
+
+    Sheets("関係").Select Replace:=False
+
+End If
+
+If CheckBox29.Value = True Then
+
+    Sheets("長期前払").Select Replace:=False
+
+End If
+
+If CheckBox30.Value = True Then
+
+    Sheets("長期貸付").Select Replace:=False
+
+End If
+
+If CheckBox31.Value = True Then
+
+      For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("支払保証" & "(" & i & ")") Then
+                
+            Worksheets("支払保証" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("支払保証").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox32.Value = True Then
+
+    Sheets("保険積立金").Select Replace:=False
+
+End If
+
+If CheckBox33.Value = True Then
+
+        For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("買掛金" & "(" & i & ")") Then
+                
+            Worksheets("買掛金" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("買掛金").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox34.Value = True Then
+
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("未仕入" & "(" & i & ")") Then
+                
+            Worksheets("未仕入" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("未仕入").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox35.Value = True Then
+
+    Sheets("短期借入").Select Replace:=False
+
+End If
+
+If CheckBox36.Value = True Then
+
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("未払金" & "(" & i & ")") Then
+                
+            Worksheets("未払金" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("未払金").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox37.Value = True Then
+
+    Sheets("前受金").Select Replace:=False
+
+End If
+
+If CheckBox38.Value = True Then
+
+'    Sheets("未成工事受").Select Replace:=False
+
+End If
+
+If CheckBox39.Value = True Then
+
+    Sheets("仮受金").Select Replace:=False
+
+End If
+
+If CheckBox40.Value = True Then
+
+    Sheets("預り金").Select Replace:=False
+
+End If
+
+If CheckBox41.Value = True Then
+
+    Sheets("未払法").Select Replace:=False
+
+End If
+
+If CheckBox42.Value = True Then
+
+    Sheets("長期借入").Select Replace:=False
+
+End If
+
+If CheckBox43.Value = True Then
+
+    Sheets("賃借").Select Replace:=False
+
+End If
+
+If CheckBox44.Value = True Then
+
+          For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("家賃" & "(" & i & ")") Then
+                
+            Worksheets("家賃" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("家賃").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox45.Value = True Then
+
+            For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("租税公課" & "(" & i & ")") Then
+                
+            Worksheets("租税公課" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("租税公課").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+If CheckBox46.Value = True Then
+
+    Sheets("寄付").Select Replace:=False
+
+End If
+
+If CheckBox47.Value = True Then
+
+    Sheets("受取利息").Select Replace:=False
+
+End If
+
+If CheckBox48.Value = True Then
+
+    Sheets("受取配当金").Select Replace:=False
+
+End If
+
+If CheckBox49.Value = True Then
+
+    Sheets("ロイヤリティ").Select Replace:=False
+
+End If
+
+If CheckBox50.Value = True Then
+
+    Sheets("有価益").Select Replace:=False
+
+End If
+
+If CheckBox51.Value = True Then
+
+    Sheets("為替差益").Select Replace:=False
+
+End If
+
+If CheckBox52.Value = True Then
+
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("雑収入" & "(" & i & ")") Then
+                
+            Worksheets("雑収入" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("雑収入").Select Replace:=False
+        
+    End If
+
+    c = 0
+    
+End If
+
+If CheckBox53.Value = True Then
+
+    Sheets("支払利息").Select Replace:=False
+
+End If
+
+If CheckBox54.Value = True Then
+
+    Sheets("有価損").Select Replace:=False
+
+End If
+
+If CheckBox55.Value = True Then
+
+    Sheets("為替差損").Select Replace:=False
+
+End If
+
+If CheckBox56.Value = True Then
+
+    Sheets("雑損失").Select Replace:=False
+
+End If
+
+If CheckBox57.Value = True Then
+
+    Sheets("固定資産売却益").Select Replace:=False
+
+End If
+
+If CheckBox58.Value = True Then
+
+    Sheets("前期損益修正益").Select Replace:=False
+
+End If
+
+If CheckBox59.Value = True Then
+
+    Sheets("固定資産受贈益").Select Replace:=False
+
+End If
+
+If CheckBox60.Value = True Then
+
+    Sheets("受取保険").Select Replace:=False
+
+End If
+
+If CheckBox61.Value = True Then
+
+    Sheets("国庫補助金収入").Select Replace:=False
+
+End If
+
+If CheckBox62.Value = True Then
+
+    Sheets("固定資産売却損").Select Replace:=False
+
+End If
+
+If CheckBox63.Value = True Then
+
+    Sheets("役員退職金").Select Replace:=False
+
+End If
+
+If CheckBox64.Value = True Then
+
+    Sheets("前期損益修正損").Select Replace:=False
+
+End If
+
+If CheckBox65.Value = True Then
+
+    Sheets("固定資産圧縮損").Select Replace:=False
+
+End If
+
+If CheckBox66.Value = True Then
+
+    Sheets("損害賠償金").Select Replace:=False
+
+End If
+
+If CheckBox67.Value = True Then
+
+    Sheets("固定資産除却損").Select Replace:=False
+
+End If
+
+If CheckBox68.Value = True Then
+
+    Sheets("有価損（特").Select Replace:=False
+
+End If
+
+If CheckBox69.Value = True Then
+
+    For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("法人税等充当額" & "(" & i & ")") Then
+                
+            Worksheets("法人税等充当額" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("法人税等充当額").Select Replace:=False
+        
+    End If
+
+    c = 0
+
+End If
+
+ActiveSheet.PageSetup.FirstPageNumber = Range("I30").Text
+ActiveWindow.SelectedSheets.PrintPreview
+
+Sheets("印刷選択").Visible = True
+Sheets("印刷選択").Select
+
+
+
+End Sub
+
+Private Sub CommandButton2_Click()
+
+CheckBox1.Value = True
+CheckBox2.Value = True
+CheckBox3.Value = True
+CheckBox4.Value = True
+CheckBox5.Value = True
+CheckBox6.Value = True
+CheckBox7.Value = True
+CheckBox8.Value = True
+CheckBox9.Value = True
+CheckBox10.Value = True
+CheckBox11.Value = True
+CheckBox12.Value = True
+CheckBox13.Value = True
+CheckBox14.Value = True
+CheckBox15.Value = True
+CheckBox16.Value = True
+CheckBox17.Value = True
+CheckBox18.Value = True
+CheckBox19.Value = True
+CheckBox20.Value = True
+CheckBox21.Value = True
+CheckBox22.Value = True
+CheckBox23.Value = True
+CheckBox24.Value = True
+CheckBox25.Value = True
+CheckBox26.Value = True
+CheckBox27.Value = True
+CheckBox28.Value = True
+CheckBox29.Value = True
+CheckBox30.Value = True
+CheckBox31.Value = True
+CheckBox32.Value = True
+CheckBox33.Value = True
+CheckBox34.Value = True
+CheckBox35.Value = True
+CheckBox36.Value = True
+CheckBox37.Value = True
+CheckBox38.Value = True
+CheckBox39.Value = True
+CheckBox40.Value = True
+CheckBox41.Value = True
+CheckBox42.Value = True
+CheckBox43.Value = True
+CheckBox44.Value = True
+CheckBox45.Value = True
+CheckBox46.Value = True
+CheckBox47.Value = True
+CheckBox48.Value = True
+CheckBox49.Value = True
+CheckBox50.Value = True
+CheckBox51.Value = True
+CheckBox52.Value = True
+CheckBox53.Value = True
+CheckBox54.Value = True
+CheckBox55.Value = True
+CheckBox56.Value = True
+CheckBox57.Value = True
+CheckBox58.Value = True
+CheckBox59.Value = True
+CheckBox60.Value = True
+CheckBox61.Value = True
+CheckBox62.Value = True
+CheckBox63.Value = True
+CheckBox64.Value = True
+CheckBox65.Value = True
+CheckBox66.Value = True
+CheckBox67.Value = True
+CheckBox68.Value = True
+
+End Sub
+
+Private Sub CommandButton3_Click()
+
+CheckBox2.Value = False
+CheckBox3.Value = False
+CheckBox4.Value = False
+CheckBox5.Value = False
+CheckBox6.Value = False
+CheckBox7.Value = False
+CheckBox8.Value = False
+CheckBox9.Value = False
+CheckBox10.Value = False
+CheckBox11.Value = False
+CheckBox12.Value = False
+CheckBox13.Value = False
+CheckBox14.Value = False
+CheckBox15.Value = False
+CheckBox16.Value = False
+CheckBox17.Value = False
+CheckBox18.Value = False
+CheckBox19.Value = False
+CheckBox20.Value = False
+CheckBox21.Value = False
+CheckBox22.Value = False
+CheckBox23.Value = False
+CheckBox24.Value = False
+CheckBox25.Value = False
+CheckBox26.Value = False
+CheckBox27.Value = False
+CheckBox28.Value = False
+CheckBox29.Value = False
+CheckBox30.Value = False
+CheckBox31.Value = False
+CheckBox32.Value = False
+CheckBox33.Value = False
+CheckBox34.Value = False
+CheckBox35.Value = False
+CheckBox36.Value = False
+CheckBox37.Value = False
+CheckBox38.Value = False
+CheckBox39.Value = False
+CheckBox40.Value = False
+CheckBox41.Value = False
+CheckBox42.Value = False
+CheckBox43.Value = False
+CheckBox44.Value = False
+CheckBox45.Value = False
+CheckBox46.Value = False
+CheckBox47.Value = False
+CheckBox48.Value = False
+CheckBox49.Value = False
+CheckBox50.Value = False
+CheckBox51.Value = False
+CheckBox52.Value = False
+CheckBox53.Value = False
+CheckBox54.Value = False
+CheckBox55.Value = False
+CheckBox56.Value = False
+CheckBox57.Value = False
+CheckBox58.Value = False
+CheckBox59.Value = False
+CheckBox60.Value = False
+CheckBox61.Value = False
+CheckBox62.Value = False
+CheckBox63.Value = False
+CheckBox64.Value = False
+CheckBox65.Value = False
+CheckBox66.Value = False
+CheckBox67.Value = False
+CheckBox68.Value = False
+
+End Sub
