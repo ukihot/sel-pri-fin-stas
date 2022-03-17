@@ -627,8 +627,23 @@ If CheckBox50.Value = True Then
 End If
 
 If CheckBox51.Value = True Then
+For i = 0 To 10
+' ƒV[ƒg‚ª‚ ‚éê‡
+   If SheetDetect("ˆ×‘Ö·‰v" & "(" & i & ")") Then
+           
+       Worksheets("ˆ×‘Ö·‰v" & "(" & i & ")").Select Replace:=False
+       c = 1
+       
+   End If
+   Next
+    
+    If c = 0 Then
+    
+        Sheets("ˆ×‘Ö·‰v").Select Replace:=False
+        
+    End If
 
-    Sheets("ˆ×‘Ö·‰v").Select Replace:=False
+    c = 0
 
 End If
 
@@ -761,7 +776,25 @@ End If
 
 If CheckBox67.Value = True Then
 
-    Sheets("ŒÅ’è‘Yœ‹p‘¹").Select Replace:=False
+            For i = 0 To 10
+    
+        ' ƒV[ƒg‚ª‚ ‚éê‡
+        If SheetDetect("ŒÅ’è‘Yœ‹p‘¹" & "(" & i & ")") Then
+                
+            Worksheets("ŒÅ’è‘Yœ‹p‘¹" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("ŒÅ’è‘Yœ‹p‘¹").Select Replace:=False
+        
+    End If
+
+    c = 0
 
 End If
 
