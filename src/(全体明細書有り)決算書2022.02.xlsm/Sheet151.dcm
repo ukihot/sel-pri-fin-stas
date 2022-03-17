@@ -2,7 +2,7 @@ VERSION 1.0 CLASS
 BEGIN
   MultiUse = -1  'True
 END
-Attribute VB_Name = "Sheet111"
+Attribute VB_Name = "Sheet151"
 Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
@@ -81,7 +81,27 @@ End If
 
 If CheckBox4.Value = True Then
 
-    Sheets("電子記録").Select Replace:=False
+
+            For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("電子" & "(" & i & ")") Then
+                
+            Worksheets("電子" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("電子").Select Replace:=False
+        
+    End If
+
+    c = 0
+
 
 End If
 
@@ -228,7 +248,25 @@ End If
 
 If CheckBox19.Value = True Then
 
-    Sheets("未収入金").Select Replace:=False
+    For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("未収入金" & "(" & i & ")") Then
+                
+            Worksheets("未収入金" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("未収入金").Select Replace:=False
+        
+    End If
+
+    c = 0
 
 End If
 
@@ -270,9 +308,28 @@ End If
 
 If CheckBox23.Value = True Then
 
-    Sheets("建設仮勘定").Select Replace:=False
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("建設仮勘定" & "(" & i & ")") Then
+                
+            Worksheets("建設仮勘定" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("建設仮勘定").Select Replace:=False
+        
+    End If
+
+    c = 0
 
 End If
+
 
 If CheckBox24.Value = True Then
 
@@ -412,13 +469,6 @@ If CheckBox34.Value = True Then
 
 End If
 
-
-If CheckBox70.Value = True Then
-
-    Sheets("電子記録債務").Select Replace:=False
-
-End If
-
 If CheckBox35.Value = True Then
 
     Sheets("短期借入").Select Replace:=False
@@ -427,7 +477,7 @@ End If
 
 If CheckBox36.Value = True Then
 
-       For i = 0 To 10
+       For i = 0 To 20
     
         ' シートがある場合
         If SheetDetect("未払金" & "(" & i & ")") Then
@@ -613,7 +663,26 @@ End If
 
 If CheckBox55.Value = True Then
 
-    Sheets("為替差損").Select Replace:=False
+    
+       For i = 0 To 10
+    
+        ' シートがある場合
+        If SheetDetect("為替差損" & "(" & i & ")") Then
+                
+            Worksheets("為替差損" & "(" & i & ")").Select Replace:=False
+            c = 1
+            
+        End If
+    
+    Next
+    
+    If c = 0 Then
+    
+        Sheets("為替差損").Select Replace:=False
+        
+    End If
+
+    c = 0
 
 End If
 
@@ -697,7 +766,7 @@ End If
 
 If CheckBox69.Value = True Then
 
-    For i = 0 To 10
+        For i = 0 To 10
     
         ' シートがある場合
         If SheetDetect("法人税等充当額" & "(" & i & ")") Then
@@ -716,10 +785,11 @@ If CheckBox69.Value = True Then
     End If
 
     c = 0
-
+    
+    
 End If
 
-ActiveSheet.PageSetup.FirstPageNumber = Range("I31").Text
+ActiveSheet.PageSetup.FirstPageNumber = Range("I30").Text
 ActiveWindow.SelectedSheets.PrintPreview
 
 Sheets("印刷選択").Visible = True
@@ -799,8 +869,6 @@ CheckBox65.Value = True
 CheckBox66.Value = True
 CheckBox67.Value = True
 CheckBox68.Value = True
-CheckBox69.Value = True
-CheckBox70.Value = True
 
 End Sub
 
@@ -873,7 +941,5 @@ CheckBox65.Value = False
 CheckBox66.Value = False
 CheckBox67.Value = False
 CheckBox68.Value = False
-CheckBox69.Value = False
-CheckBox70.Value = False
 
 End Sub
