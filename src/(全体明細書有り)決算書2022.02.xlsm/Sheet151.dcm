@@ -469,6 +469,13 @@ If CheckBox34.Value = True Then
 
 End If
 
+If CheckBox70.Value = True Then
+
+    Sheets("電子記録債務").Select Replace:=False
+
+End If
+
+
 If CheckBox35.Value = True Then
 
     Sheets("短期借入").Select Replace:=False
@@ -789,7 +796,7 @@ If CheckBox69.Value = True Then
     
 End If
 
-ActiveSheet.PageSetup.FirstPageNumber = Range("I30").Text
+ActiveSheet.PageSetup.FirstPageNumber = Range("I31").Text
 ActiveWindow.SelectedSheets.PrintPreview
 
 Sheets("印刷選択").Visible = True
@@ -869,6 +876,8 @@ CheckBox65.Value = True
 CheckBox66.Value = True
 CheckBox67.Value = True
 CheckBox68.Value = True
+CheckBox69.Value = True
+CheckBox70.Value = True
 
 End Sub
 
@@ -941,5 +950,7 @@ CheckBox65.Value = False
 CheckBox66.Value = False
 CheckBox67.Value = False
 CheckBox68.Value = False
+CheckBox69.Value = False
+CheckBox70.Value = False
 
 End Sub
